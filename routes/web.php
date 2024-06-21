@@ -42,7 +42,6 @@ Route::middleware('usuarios')->group(function () {
         Route::get('/vendas/lista', 'lista')->name('lista-venda');
         Route::get('/vendas/{vendaId}', 'dadosVenda')->name('dados-venda');
         Route::delete('/vendas/{vendaId}', 'deletar')->name('deletar-venda');
-
     });
 
     Route::controller(ControllerClientes::class)->group(function () {

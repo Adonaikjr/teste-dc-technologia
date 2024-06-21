@@ -92,6 +92,7 @@ class ControllerVendas
             $CriarPagamento($carrinhoId, $clienteId, $vendaId, $valor, $venc_parc);
         }
 
+
         Session::flash('sucesso', 'Venda realizada!');
         return response()->json($vendaId);
     }
@@ -109,7 +110,7 @@ class ControllerVendas
 
         $carrinhoItems = ItemsCarrinho::where('carrinho_id', $venda->carrinho_id)->get();
 
-        $pagamento = Pagamento::where('carrinho_id', $venda->carrinho_id);
+        $pagamento = Pagamento::where('carrinho_id', $venda->carrinho_id)->get();
 
 
         return view('Vendas.update', compact('carrinhoItems', 'venda', 'pagamento'));

@@ -13,10 +13,10 @@
         <div style="padding-top: 4rem;">
 
 
-        @include('Layout.alert')
+            @include('Layout.alert')
 
-        <a class="btn btn-warning" href="{{route('lista-venda')}}">Voltar para lista</a>
-      </div>
+            <a class="btn btn-warning" href="{{ route('lista-venda') }}">Voltar para lista</a>
+        </div>
         <h1 style="padding: 2rem 0rem;">Detalhes da venda</h1>
 
 
@@ -33,14 +33,14 @@
         </div>
 
 
-         <div class="form-floating mb-3">
+        <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInput" value={{ $venda->carrinho_id }}
                 placeholder="name@example.com">
             <label for="floatingInput">ID do carrinho</label>
         </div>
 
 
-          <div class="form-floating mb-3">
+        <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInput" value={{ $venda->valor_total }}
                 placeholder="name@example.com">
             <label for="floatingInput">Valor Total da venda</label>
@@ -70,9 +70,36 @@
                 @endforeach
 
 
+            </tbody>
+        </table>
+
+
+        <h3 style="padding: 2rem 0rem;">Parcelas</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#ID</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Vencimento</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($pagamento as $pagto)
+                    <tr>
+                        <th scope="row">{{ $pagto->id }}</th>
+                        <td>{{ $pagto->valor }}</td>
+                        <td>{{ $pagto->venc_parcela }}</td>
+                        <td><button type="button" class="btn btn-warning" onclick="handleEditar()">Editar</button></td>
+                    </tr>
+                @endforeach
+
 
             </tbody>
         </table>
+
+
 
     </div>
 </body>
